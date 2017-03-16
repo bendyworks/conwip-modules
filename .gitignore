@@ -2,6 +2,7 @@
 target/
 resources/dev
 resources/dev_test/js
+resources/simple_test/js
 resources/prod_test/js
 .nrepl*
 .repl*
