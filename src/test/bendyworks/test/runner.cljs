@@ -16,9 +16,10 @@
 
 (deftest dynamic-module-load
   (async load-module
-    (is (true? (bm/loaded? "extra")))
-    (is (= "works" (gobj/get shared/data "extra")))
-    (is (= {:call-ns "bendyworks.test.extra" :type :extra} (shared/cross-module-fn {:type :extra})))
-    (load-module)))
+    (bm/load-module "extra"
+      (fn [] (is (true? (bm/loaded? "extra")))
+        (is (= "works" (gobj/get shared/data "extra")))
+        (is (= {:call-ns "bendyworks.test.extra" :type :extra} (shared/cross-module-fn {:type :extra})))
+        (load-module)))))
 
 (run-tests)
