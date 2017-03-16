@@ -1,9 +1,8 @@
 (ns bendyworks.test.extra
   (:require [bendyworks.modules :as bm]
-            [bendyworks.test.shared :as bts]
-            [goog.object :as gobj]))
+            [bendyworks.test.shared :as bts]))
 
-(gobj/set bts/data "extra" "works")
+(swap! bts/data (fn [data] (assoc data :extra "works")))
 
 (defmethod bts/cross-module-fn :extra [opts]
   (assoc opts :call-ns "bendyworks.test.extra"))
