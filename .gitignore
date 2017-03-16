@@ -1,5 +1,7 @@
 .idea/
 target/
+resources/dev
+resources/dev_test/js
 .nrepl*
 .repl*
 *.iml
