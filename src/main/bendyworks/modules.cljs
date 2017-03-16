@@ -39,8 +39,8 @@
 (def manager (.getInstance goog.module.ModuleManager))
 (def loader (goog.module.ModuleLoader.))
 (.setLoader manager loader)
-(.setAllModuleInfo manager (env-module-uris))
-(.setModuleUris manager (env-module-deps))
+(.setAllModuleInfo manager (env-module-deps))
+(.setModuleUris manager (env-module-uris))
 
 (defn get-module-info
   "Get the module information for a module
