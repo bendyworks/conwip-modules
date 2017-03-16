@@ -24,6 +24,7 @@
 
   :closure-defines {'bendyworks.modules.PRODUCTION true}"
   (:require [goog.events :as ge])
+  (:require-macros [bendyworks.modules :refer [env-module-uris env-module-deps]])
   (:import goog.module.ModuleManager
            goog.module.ModuleLoader
            goog.Timer))
@@ -38,26 +39,8 @@
 (def manager (.getInstance goog.module.ModuleManager))
 (def loader (goog.module.ModuleLoader.))
 (.setLoader manager loader)
-
-(defn init-manager
-  "Initializes the Module Manager with the modules uris and and dependencies
-  Both parameters (module-uris and module-deps) need to be passed in as JavaScript objects
-
-  (def module-uris
-    #js {\"extra\"  \"path/to/extra.js\"
-         \"tools\"  \"path/to/tools.js\"
-         \"hammer\" \"path/to/hammer.js\"})
-  ;; the extra module has no dependencies
-  ;; the hammer module has a dependency on tools
-  (def module-deps
-    #js {\"extra\"  #js []
-         \"tools\"  #js []
-         \"hammer\" #js [\"tools\"]})
-
-   (init-manager module-uris module-deps)"
-  [module-uris module-deps]
-  (.setAllModuleInfo manager module-deps)
-  (.setModuleUris manager module-uris))
+(.setAllModuleInfo manager (env-module-uris))
+(.setModuleUris manager (env-module-deps))
 
 (defn get-module-info
   "Get the module information for a module

@@ -1,8 +1,6 @@
 (ns bendyworks.test.runner
   (:require [bendyworks.modules :as bm]
             [bendyworks.test.shared :as shared]
-            ;; Initialize the module manager
-            [bendyworks.test.init]
             ;; Keep extra loaded in dev mode
             [bendyworks.test.extra]
             [goog.object :as gobj]
