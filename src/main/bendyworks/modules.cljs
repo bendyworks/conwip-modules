@@ -2,15 +2,13 @@
   "ClojureScript Wrapper for goog.module.Manager
   This allows dynamically loading ClojureScript modules from the client side
 
-  Here's the ClojureScript setup for getting development working
+  Here's an sample project using dynamic loading
+
+  Setup these ClojureScript namespaces
   ;;Root module namespace
   (ns my.app
     (:require [my.app.extra]
               [bendyworks.modules :as bm]))
-    ;;Initalize module manager
-    (def module-uris #js {\"extra\"  \"path/to/extra.js\"})
-    (def module-deps #js {\"extra\"  #js []})
-    (bm/init-manager #js module-uris module-deps)
 
     (bm/load-module \"extra\" (fn [] (.log js/console \"The extra module has loaded\")))
 
@@ -19,6 +17,13 @@
     (:require [bendyworks.modules :as bm]))
 
   (bm/set-loaded! \"extra\")
+
+  In your build / compiler settings add this setting
+
+  :module-info {:module/uris {\"extra\" \"path/to/extra.js\"
+                              \"dev\" \"path/to/dev.js\"}
+                :module/deps {\"extra\" []
+                              \"dev\" []}}
 
   To set this up in production add this compiler option to yoour build
 
