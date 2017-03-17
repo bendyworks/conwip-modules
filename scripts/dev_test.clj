@@ -2,6 +2,7 @@
 
 (b/build (b/inputs "src/main/bendyworks" "src/test/bendyworks/")
          {:optimizations :none
+          :preloads '[bendyworks.test.extra]
           :main 'bendyworks.test.runner
           :module-info {:module/uris {"extra" "js/extra.js"
                                       "dev" "js/dev.js"}

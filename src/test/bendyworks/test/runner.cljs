@@ -1,8 +1,6 @@
 (ns bendyworks.test.runner
   (:require [bendyworks.modules :as bm]
             [bendyworks.test.shared :as shared]
-            ;; Keep extra loaded in dev mode
-            [bendyworks.test.extra]
             [cljs.test :refer-macros [is async are deftest run-tests]]))
 
 (enable-console-print!)

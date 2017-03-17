@@ -7,8 +7,7 @@
   Setup these ClojureScript namespaces
   ;;Root module namespace
   (ns my.app
-    (:require [my.app.extra]
-              [bendyworks.modules :as bm]))
+    (:require [bendyworks.modules :as bm]))
 
     (bm/load-module \"extra\" (fn [] (.log js/console \"The extra module has loaded\")))
 
@@ -18,14 +17,18 @@
 
   (bm/set-loaded! \"extra\")
 
-  In your build / compiler settings add this setting
+  In your build / compiler settings
 
   :module-info {:module/uris {\"extra\" \"path/to/extra.js\"
                               \"dev\" \"path/to/dev.js\"}
                 :module/deps {\"extra\" []
                               \"dev\" []}}
 
-  To set this up in production add this compiler option to yoour build
+  In Development add all your module namespaces to :preloads
+
+  :preloads '[my.app.extra]
+
+  To set this up in production add this compiler option to your build
 
   :closure-defines {'bendyworks.modules.PRODUCTION true}"
   (:require [goog.events :as ge])
