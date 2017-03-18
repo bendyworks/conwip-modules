@@ -1,4 +1,4 @@
-(ns bendyworks.modules
+(ns conwip.modules
   (:require [cljs.core :as cc]
             [cljs.env]))
 

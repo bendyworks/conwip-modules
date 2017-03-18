@@ -1,19 +1,19 @@
 (require '[cljs.build.api :as b])
 
-(b/build (b/inputs "src/main/bendyworks" "src/test/bendyworks")
+(b/build (b/inputs "src/main/conwip" "src/test/conwip")
          {:optimizations :simple
           :pretty-print true
-          :main 'bendyworks.test.runner
+          :main 'conwip.test.runner
           :module-info {:module/uris {"extra" "js/extra.js"
                                       "dev" "js/dev.js"}
                         :module/deps {"extra" []
                                       "dev" []}}
           :modules {:extra {:output-to "resources/simple_test/js/extra.js"
-                            :entries #{"bendyworks.test.extra"}}
+                            :entries #{"conwip.test.extra"}}
                     :dev {:output-to "resources/simple_test/js/test.js"
-                          :entries #{"bendyworks.test.runner"}
+                          :entries #{"conwip.test.runner"}
                           :depends-on #{:extra}}}
-          :closure-defines {'bendyworks.modules.PRODUCTION true}
+          :closure-defines {'conwip.modules.PRODUCTION true}
           :asset-path "js"
           :output-dir    "resources/simple_test/js"})
 

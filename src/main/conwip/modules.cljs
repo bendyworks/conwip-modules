@@ -1,4 +1,4 @@
-(ns bendyworks.modules
+(ns conwip.modules
   "ClojureScript Wrapper for goog.module.Manager
   This allows dynamically loading ClojureScript modules from the client side
 
@@ -7,13 +7,13 @@
   Setup these ClojureScript namespaces
   ;;Root module namespace
   (ns my.app
-    (:require [bendyworks.modules :as bm]))
+    (:require [conwip.modules :as bm]))
 
     (bm/load-module \"extra\" (fn [] (.log js/console \"The extra module has loaded\")))
 
   ;;Extra Module
   (ns my.app.extra
-    (:require [bendyworks.modules :as bm]))
+    (:require [conwip.modules :as bm]))
 
   (bm/set-loaded! \"extra\")
 
@@ -30,9 +30,9 @@
 
   To set this up in production add this compiler option to your build
 
-  :closure-defines {'bendyworks.modules.PRODUCTION true}"
+  :closure-defines {'conwip.modules.PRODUCTION true}"
   (:require [goog.events :as ge])
-  (:require-macros [bendyworks.modules :refer [env-module-uris env-module-deps]])
+  (:require-macros [conwip.modules :refer [env-module-uris env-module-deps]])
   (:import goog.module.ModuleManager
            goog.module.ModuleLoader
            goog.Timer))
@@ -41,7 +41,7 @@
   ^{:doc "Closure define boolean marker for if we are loading modules in production.
   Use the following compiler option to load modules in
   production (:simple or :advanced optimization)
-  :closure-defines {'bendyworks.modules.PRODUCTION true}"}
+  :closure-defines {'conwip.modules.PRODUCTION true}"}
   PRODUCTION false)
 
 (def manager (.getInstance goog.module.ModuleManager))
@@ -111,14 +111,14 @@
   The we would need to call set-loaded! in the my.app.extra namsspace
 
   (ns my.app.extra
-    (:require [bendyworks.modules :as bm]))
+    (:require [conwip.modules :as bm]))
 
   (bm/set-loaded! \"extra\")
 
   or my.app.bonus namespaces.
 
   (ns my.app.bonus
-    (:require [bendyworks.modules :as bm]))
+    (:require [conwip.modules :as bm]))
 
   (bm/set-loaded! \"extra\")
 

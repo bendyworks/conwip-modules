@@ -1,9 +1,9 @@
 (require '[cljs.build.api :as b])
 
-(b/build (b/inputs "src/main/bendyworks" "src/test/bendyworks/")
+(b/build (b/inputs "src/main/conwip" "src/test/conwip/")
          {:optimizations :none
-          :preloads '[bendyworks.test.extra]
-          :main 'bendyworks.test.runner
+          :preloads '[conwip.test.extra]
+          :main 'conwip.test.runner
           :module-info {:module/uris {"extra" "js/extra.js"
                                       "dev" "js/dev.js"}
                         :module/deps {"extra" []

@@ -1,4 +1,4 @@
-(ns bendyworks.modules.dev
+(ns conwip.modules.dev
   (:require [clojure.browser.repl :as repl]))
 
 (enable-console-print!)
