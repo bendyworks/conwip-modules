@@ -8,10 +8,10 @@
                         :module/deps {"extra" []
                                       "dev" []}}
           :modules {:extra {:output-to "resources/prod_test/js/extra.js"
-                            :entries #{"conwip.test.extra"}}
+                            :entries #{"conwip.test.extra"}
+                            :depends-on #{:dev}}
                     :dev {:output-to "resources/prod_test/js/test.js"
-                          :entries #{"conwip.test.runner"}
-                          :depends-on #{:extra}}}
+                          :entries #{"conwip.test.runner"}}}
           :closure-defines {'conwip.modules.PRODUCTION true}
           :asset-path "js"
           :output-dir    "resources/prod_test/js"})
