@@ -212,7 +212,9 @@ Removing the need for `set-loaded!`would require integration with ClojureScript.
 ### Thanks
 
 [Bendyworks](http://bendyworks.com/) for supporting the development of Conwip Modules
+
 [Allen Rohner](https://github.com/arohner) for doing much of the ground work for [dynamic modules](https://rasterize.io/blog/cljs-dynamic-module-loading.html)
+
 [Antonin Hildebrand](https://github.com/binaryage) for his ideas on how to import [arbitrary compiler options](https://github.com/binaryage/cljs-devtools/blob/master/src/lib/devtools/prefs.clj)
 
 ### Copyright and  License
