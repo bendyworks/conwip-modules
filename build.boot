@@ -1,7 +1,7 @@
 (set-env!
-  :project 'bendworks.modules
-  :version "0.1.0-SNAPHOT"
-  :description "Sample project demonstrating Advance ClojureScript"
+  :project 'conwip.modules
+  :version "0.1.0"
+  :description "Library for dynamically loading ClojureScript modules"
   :source-paths #{"src/main" "src/test"}
   :resource-paths #{"resources"}
   :dependencies '[[org.clojure/clojure "1.9.0-alpha14"]
@@ -11,7 +11,7 @@
 (require '[boot.core :as core])
 
 (deftask lein-profile []
-  "Make a Lein profile from a boo build file"
+  "Make a Lein profile from a boot build file"
   (require 'boot.lein)
 
   (task-options!

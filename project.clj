@@ -1,8 +1,8 @@
 (defproject
-  bendworks.modules
-  "0.1.0-SNAPHOT"
+  conwip.modules
+  "0.1.0"
   :description
-  "Sample project demonstrating Advance ClojureScript"
+  "Library for dynamically loading ClojureScript modules"
   :repositories
   [["clojars" {:url "https://repo.clojars.org/"}]
    ["maven-central" {:url "https://repo1.maven.org/maven2"}]]
