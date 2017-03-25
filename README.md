@@ -7,7 +7,7 @@ Google Closure Library's Module Manager `goog.module.Manager`.
 ### Leiningen / Boot
 
 ```clojure
-[conwip-modules "0.1.0"]
+[conwip.modules "0.1.0"]
 ```
 
 ### Terminology
