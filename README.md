@@ -120,7 +120,7 @@ Returns a `goog.module.ModuleInfo` object for the ClojureScript module
 
 Loads a ClojureScript module and fires a callback function when finished. No arguments are passed to the callback function
 
-**`(set-loaded! module-id)``**
+**`(set-loaded! module-id)`**
 
 ```clojure
 (set-loaded! "my-module")
@@ -151,7 +151,7 @@ adding `set-loaded!` to the `my.app.red` namespace will not cause any harm it wi
 
 **`:module-info`**
 
-The `:module-info` compiler option is required for Conwip modules to work. Module URI and dependency information is needed
+The `:module-info` compiler option is required for Conwip Modules to work. Module URI and dependency information is needed
 for the Google Closure Library Module Manager to work properly. Both module URI's (through `:module/uris` and module
 dependencies (through `:module/deps` are required
 
@@ -195,7 +195,7 @@ Setting the define `conwip.modules.PRODUCTION` to true turns module loading from
 
 **Why is Moudle X not loading?**
 
-There could be several reasons for this not to happen
+There could be several reasons why a module is not loading
 - The module's information is not in the `:module-info` compiler option
 - The module's URI is incorrect in `:modules/uris`
 - `set-loaded!` was not called in any of the modules namespaces or was called with the incorrect module id
@@ -204,12 +204,19 @@ There could be several reasons for this not to happen
 
 ### Future Features
 
+The `:module-info` compiler option could be completely removed by using information from the `:modules` compiler option.
+There are several edge cases to consider for this to be a viable option.
+
+Removing the need for `set-loaded!`would require integration with ClojureScript.
+
 ### Thanks
 
+[Bendyworks](http://bendyworks.com/) for supporting the development of Conwip Modules
 [Allen Rohner](https://github.com/arohner) for doing much of the ground work for [dynamic modules](https://rasterize.io/blog/cljs-dynamic-module-loading.html)
-[Antonin Hildebrand](https://github.com/binaryage) for his ideas on how to import [arbitrary compiler options](https://github.com/binaryage/cljs-devtools/blob/
-master/src/lib/devtools/prefs.clj)
+[Antonin Hildebrand](https://github.com/binaryage) for his ideas on how to import [arbitrary compiler options](https://github.com/binaryage/cljs-devtools/blob/master/src/lib/devtools/prefs.clj)
 
-### License
+### Copyright and  License
 
 Copyright © 2017 Bendyworks
+
+Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
