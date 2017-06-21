@@ -191,6 +191,16 @@ Setting the define `conwip.modules.PRODUCTION` to true turns module loading from
 :closure-defines {'conwip.modules.PRODUCTION true}
 ```
 
+### Node Support
+
+Dynamically loading modules inside a node application is not feasible with the current Google Closure Library [Module Loader](https://google.github.io/closure-library/api/goog.module.Loader.html). The module loader was designed for dynamic loading in the browser and follows this algorithm to load modules
+
+- Get all the uris (in dependecy order) for a given module
+- Retrieve the raw JavaScript (text) of all the files pointed to via the uris
+- Load the JavaScript into the global scope through the `eval` function
+
+This is incompatible with the way Node's module scope works. Each module would need to correctly import it's dependencies and export all variables it created. See this Google Closure issue for more details google/closure-compiler#2406
+
 ### FAQ
 
 **Why is Moudle X not loading?**
