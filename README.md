@@ -201,6 +201,13 @@ Dynamically loading modules inside a node application is not feasible with the c
 
 This is incompatible with the way Node's module scope works. Each module would need to correctly import it's dependencies and export all variables it created. See this Google Closure issue for more details google/closure-compiler#2406
 
+### Potential Deprecation Notice
+
+The current functionality of `conwip-modules` may be getting rolled into ClojureScript under a compiler option of `:module-loader` (see ClojureScript ticket [2077](https://dev.clojure.org/jira/browse/CLJS-2077)). This *may* be similar to how [Shadow CLJS](https://github.com/thheller/shadow-cljs/wiki/ClojureScript-for-the-browser) currently works.
+
+See [cljs-dev 2017-06-09](https://clojurians-log.clojureverse.org/cljs-dev/2017-06-09.html) and [cljs-dev 2017-06-10](https://clojurians-log.clojureverse.org/cljs-dev/2017-06-10.html) for the relevant discussions. The ClojureScript tickets that will make this possible are [2076](https://dev.clojure.org/jira/browse/CLJS-2076), [2077](https://dev.clojure.org/jira/browse/CLJS-2077), and
+[2078](https://dev.clojure.org/jira/browse/CLJS-2078).
+
 ### FAQ
 
 **Why is Moudle X not loading?**
