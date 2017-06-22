@@ -191,6 +191,14 @@ Setting the define `conwip.modules.PRODUCTION` to true turns module loading from
 :closure-defines {'conwip.modules.PRODUCTION true}
 ```
 
+### Code Splitting ClojureScript vs Webpack
+
+Dividing you application into modules, aka Code Splitting, is handled very differently in Google Closure than in Webpack.
+
+In Webpack code splits are defined inside the code through, `import` (or deprecated commands `System.import` or `require.ensure`). The `import` command dynamically loads the requested module and returns a promise. For more information see the [Webpack Code Splitting Async Guide](https://webpack.js.org/guides/code-splitting-async/).
+
+ClojureScript Code Splitting uses Google Closure Code Modules which does not require any split points to be defined inside the code. Instead you define what namespaces will be in each modules and the dependency graph and Google Closure takes care of the rest (see [here](https://clojurescript.org/reference/compiler-options#modules) details). Google Closure move code between modules for optimal splits using a technique called [cross moudle code motion](http://swannodette.github.io/2015/02/23/hello-google-closure-modules).  ClojureScript has been [tuned](http://swannodette.github.io/2015/04/07/in-stillness-movement) to take full advantage of this.
+
 ### Node Support
 
 Dynamically loading modules inside a node application is not feasible with the current Google Closure Library [Module Loader](https://google.github.io/closure-library/api/goog.module.Loader.html). The module loader was designed for dynamic loading in the browser and follows this algorithm to load modules
