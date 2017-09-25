@@ -193,11 +193,11 @@ Setting the define `conwip.modules.PRODUCTION` to true turns module loading from
 
 ### Code Splitting ClojureScript vs Webpack
 
-Dividing you application into modules, aka Code Splitting, is handled very differently in Google Closure than in Webpack.
+Dividing your application into modules, aka Code Splitting, is handled very differently in Google Closure than in Webpack.
 
 In Webpack code splits are defined inside the code through, `import` (or deprecated commands `System.import` or `require.ensure`). The `import` command dynamically loads the requested module and returns a promise. For more information see the [Webpack Code Splitting Async Guide](https://webpack.js.org/guides/code-splitting-async/).
 
-ClojureScript Code Splitting uses Google Closure Code Modules which does not require any split points to be defined inside the code. Instead you define what namespaces will be in each modules and the dependency graph and Google Closure takes care of the rest (see [here](https://clojurescript.org/reference/compiler-options#modules) details). Google Closure move code between modules for optimal splits using a technique called [cross moudle code motion](http://swannodette.github.io/2015/02/23/hello-google-closure-modules).  ClojureScript has been [tuned](http://swannodette.github.io/2015/04/07/in-stillness-movement) to take full advantage of this.
+ClojureScript Code Splitting uses Google Closure Code Modules which does not require any split points to be defined inside the code. Instead you define what namespaces will be in each modules and the dependency graph and Google Closure takes care of the rest (see [here](https://clojurescript.org/reference/compiler-options#modules) details). Google Closure moves code between modules for optimal splits using a technique called [cross moudle code motion](http://swannodette.github.io/2015/02/23/hello-google-closure-modules).  ClojureScript has been [tuned](http://swannodette.github.io/2015/04/07/in-stillness-movement) to take full advantage of this.
 
 ### Node Support
 
@@ -218,14 +218,14 @@ See [cljs-dev 2017-06-09](https://clojurians-log.clojureverse.org/cljs-dev/2017-
 
 ### FAQ
 
-**Why is Moudle X not loading?**
+**Why is Module X not loading?**
 
 There could be several reasons why a module is not loading
 - The module's information is not in the `:module-info` compiler option
 - The module's URI is incorrect in `:modules/uris`
-- `set-loaded!` was not called in any of the modules namespaces or was called with the incorrect module id
-- You are working in development and did not add the modules namespaces to `:preloads`
-- You are working in production and did not set the define `conwip.modules.PRODUCTION` to true
+- `set-loaded!` was not called in any of the module's namespaces or was called with the incorrect module id
+- You are working in development and did not add the module's namespaces to `:preloads`
+- You are working in production and did not set the define `conwip.modules.PRODUCTION` to `true`
 
 ### Future Features
 
